@@ -2,7 +2,7 @@
 
 ### Practical outline
 
-- Create Cloudfront Static Page
+- Create Cloudfront Static Page with multiple environments
 
 ### Reference
 
