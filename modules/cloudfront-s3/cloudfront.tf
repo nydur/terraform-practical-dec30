@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 resource "aws_cloudfront_origin_access_control" "oac" {
 # You can prefix it with your s3 bucket name(e.g. YourBucketName-oac)
-  name                              = ""       
+  name                              = "${var.name_prefix}-s3-bucket-tfdec30-oac"       
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
