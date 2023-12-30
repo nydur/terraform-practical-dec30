@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 
   enabled             = true
-  comment             = ""  # Add a description regarding your cloudfront environment here
+  comment             = "Dec 30 practical example"  # Add a description regarding your cloudfront environment here
   default_root_object = "index.html"
 
 
