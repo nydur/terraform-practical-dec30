@@ -2,7 +2,7 @@
 
 ### Practical outline
 
-- Create Cloudfront Static Page with multiple environments
+- Create Cloudfront Static Page + s3 bucket with multiple environments
 
 ### Reference
 
