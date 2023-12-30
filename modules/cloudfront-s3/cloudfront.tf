@@ -6,7 +6,7 @@ data "aws_cloudfront_cache_policy" "s3_cache_policy" {
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
 # Attribute "bucket_regional_domain_name" from your s3 bucket and use here
-    domain_name              = ""  
+    domain_name              = "s3-control.ap-southeast-1.amazonaws.com"  
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
     origin_id                = "s3origin" # Must be same value as line 20
   }
@@ -43,7 +43,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 resource "aws_cloudfront_origin_access_control" "oac" {
 # You can prefix it with your s3 bucket name(e.g. YourBucketName-oac)
-  name                              = "${var.name_prefix}-s3-bucket-tfdec30-oac"       
+  name                              = "rudyn-s3-bucket-tfdec30-oac"       
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
