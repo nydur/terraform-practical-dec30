@@ -1,23 +1,21 @@
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.test.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+data "aws_cloudfront_cache_policy" "example" {
+  name = "Managed-CachingOptimized"
 }
 
-data "aws_iam_policy_document" "allow_access_from_another_account" {
+data "aws_iam_policy_document" "default" {
   statement {
+    actions = ["s3:GetObject"]
+
+    resources = ["${aws_s3_bucket.test.arn}/*"]
+
     principals {
-      type        = "AWS"
-      identifiers = ["123456789012"]
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
     }
-
-    actions = [
-      "s3:GetObject",
-      "s3:ListBucket",
-    ]
-
-    resources = [
-      aws_s3_bucket.test.arn,
-      "${aws_s3_bucket.test.arn}/*",
-    ]
+    condition {
+      test     = "StringEquals"
+      variable = "AWS:SourceArn"
+      values   = [aws_cloudfront_distribution.s3_distribution.arn]
+    }
   }
 }

@@ -6,9 +6,9 @@ data "aws_cloudfront_cache_policy" "s3_cache_policy" {
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
 # Attribute "bucket_regional_domain_name" from your s3 bucket and use here
-    domain_name              = "s3-control.ap-southeast-1.amazonaws.com"  
+    domain_name              = "${var.name_prefix}-s3-bucket-tfdec30.test.bucket_regional_domain_name" 
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
-    origin_id                = "s3origin" # Must be same value as line 20
+    origin_id                = "E3VF21PDQ06J2V"  # "s3origin" # Must be same value as line 20
   }
 
 
@@ -21,7 +21,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cache_policy_id        = data.aws_cloudfront_cache_policy.s3_cache_policy.id
     allowed_methods        = ["GET", "HEAD"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = "s3origin"   # Must be same value as line 9
+    target_origin_id       = "E3VF21PDQ06J2V"  # Must be same value as line 9 s3origin
     viewer_protocol_policy = "allow-all"
   }
 
