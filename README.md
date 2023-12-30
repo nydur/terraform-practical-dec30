@@ -10,4 +10,4 @@
 
 ### Proper setup
 
-Refer to [repo](https://github.com/jaezeu/cloudfront-static-web-module/tree/main)
+Refer to [repo](https://github.com/jaezeu/cloudfront-static-web-module/tree/main/modules/cloudfront-s3)

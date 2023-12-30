@@ -2,7 +2,7 @@ module "cloudfront-s3" {
   source = "./modules/cloudfront-s3"
   #   # generic aguments
   #   name_prefix      = var.name_prefix
-  #   environment      = var.environment
+  #   environment      = var.env
   #   vpc_id           = var.vpc_id
   #   public_subnet_id = data.aws_subnets.public.ids[0]
   #   ssh_key_name     = var.ssh_key_name
